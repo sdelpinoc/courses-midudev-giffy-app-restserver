@@ -94,5 +94,9 @@
 - `heroku git:remote -a node-js-restserver-mongodb-jwt`
 
 - Set the environment variables:
-- `heroku config:set MONGODB_CNN=""`
-- `heroku config:set SECRETORPRIVATE_KEY=""`
+    - `heroku config:set MONGODB_CNN=""`
+    - `heroku config:set SECRETORPRIVATE_KEY=""`
+
+- To check logs:
+    - `npm logs -n 100`
+    - `npm logs -n 100 --tail` -> Live logs
