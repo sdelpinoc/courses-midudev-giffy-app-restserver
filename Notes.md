@@ -14,7 +14,7 @@
 - `heroku git: remote -a sdelpinoc-node-js-restserver`
 - `git push heroku main`
 - Add npm start in package.json
-- https://sdelpinoc-node-js-restserver.herokuapp.com/
+- Url: https://sdelpinoc-node-js-restserver.herokuapp.com/
 
 # Notes - section 8
 
@@ -24,10 +24,10 @@
 - Create new cluster(name: node-js-restserver-cafe)
 - Create user(name: user_node_js, password: <password>), add the credencials in .env file
 - Connect by Mongo Db Compass
-    - connection string: mongodb+srv://user_node_js:<password>@node-js-restserver-cafe.fdro1.mongodb.net/test
+    - connection string: [connection-string-mongodb]
 
 - Start mongodb compass y use the connection string:
-    - mongodb+srv://user_node_js:Og6LC5HL3IIsJgM1@node-js-restserver-cafe.fdro1.mongodb.net/cafedb
+    - [connection-string-mongodb]
 
 ## Installations
 
@@ -75,7 +75,7 @@
 - `heroku config:unset name`
 
 - Set the MONGODB connection string:
-- `heroku git:set MONGODB_CNN=""`
+- `heroku config:set MONGODB_CNN=""`
 
 # Notes - Section 9
 
@@ -92,3 +92,7 @@
 
 - `herou login`
 - `heroku git:remote -a node-js-restserver-mongodb-jwt`
+
+- Set the environment variables:
+- `heroku config:set MONGODB_CNN=""`
+- `heroku config:set SECRETORPRIVATE_KEY=""`
