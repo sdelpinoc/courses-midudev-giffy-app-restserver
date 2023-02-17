@@ -4,10 +4,6 @@ import mongooseHidden from 'mongoose-hidden';
 const { Schema, model } = moongoose;
 
 const UserSchema = Schema({
-    name: {
-        type: String,
-        required: [true, 'The name is obligatory']
-    },
     email: {
         type: String,
         required: [true, 'The email is obligatory'],
@@ -17,22 +13,10 @@ const UserSchema = Schema({
         type: String,
         required: [true, 'The password is obligatory']
     },
-    img: {
-        type: String
-    },
-    role: {
-        type: String,
-        required: true,
-        // enum: ['ADMIN_ROLE', 'USER_ROLE'] // We get them from the database
-    },
     status: {
         type: Boolean,
         default: true
     },
-    google: {
-        type: Boolean,
-        default: false
-    }
 });
 
 // By default the plugin hide the _id and __v properties
@@ -41,13 +25,6 @@ const UserSchema = Schema({
 
 // unhides _id and hide password
 UserSchema.plugin(mongooseHidden(), { hidden: { _id: false, password: true } });
-
-// Another option to remove attributes from the schema
-// UserSchema.methods.toJSON = function() {
-//     const { __v, password, ...user } = this.toObject();
-
-//     return user;
-// };
 
 UserSchema.methods.toJSON = function() {
     const { _id: uid, ...user } = this.toObject();

@@ -13,43 +13,23 @@
 - Start mongodb compass y use the connection string
 
 ### Collections Mongodb:
-- roles
-~~~
-{
-    "role": "ADMIN_ROLE"
-}
-
-{
-    "role": "USER_ROLE"
-}
-
-{
-    "role": "SALES_ROLE"
-}
-~~~
 - users
 ~~~
 {
-    "name": "",
     "email": "",
     "password": "",
-    "role": "",
-    "status": true,
-    "google": false
+    "status": true
 }
 ~~~
 
 ## URL BASE:
+- http://localhost:3000
 
-- http://localhost:8080
 
-### Methods:
----
-
-#### GET:
+### Login user:
 - Generate a auth token
-    - /api/auth/login
-
+- Url: /api/auth/login
+- Method: POST
 - Request(application/json):
 ~~~
 {
@@ -73,24 +53,37 @@
 }
 ~~~
 
-#### DELETE:
-- To delete a user(change their status to false)
-    - /api/users/:id
-    - Example: /api/users/62df25fe7611d7ac5beb291d
-
-- Request(headers):
-~~~
-jwt-token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MmRlZjg0NTBjMDVhMTljOWIxYmQxMGMiLCJpYXQiOjE2NTg5MzI3OTksImV4cCI6MTY1ODk0NzE5OX0.EWohoZg8RYAFYa4UsQhVV9RbNaBfLmfBy6grGGn5yOs
-~~~
-
-- Response:
+### Create a user
+- Url: /api/users/
+- Method: POST
+- Request: application/json
+- Body:
 ~~~
 {
-    "name": "Test 2",
-    "email": "test2@email.com",
-    "role": "USER_ROLE",
-    "status": false,
-    "google": false,
-    "uid": "62df25fe7611d7ac5beb291d"
+    "name": "Test",
+    "email": "test@email.com",
+    "password": "123456"
+}
+~~~
+
+### Add fav
+- Url: /api/favs/:id
+- Method: POST
+- Request: application/json
+- Body: 
+~~~
+{
+    "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2UyNTIyZWU5Y2ZhMTZhMjc2N2M4N2YiLCJpYXQiOjE2NzU3ODQ2NTcsImV4cCI6MTY3NTc5OTA1N30.xK0PzMuJFDUl1ndtOzksuIsUI1vYRAMSj_BMcumc7lA"
+}
+~~~
+
+### Delete fav
+- Url: /api/favs/:id
+- Method: DELETE
+- Request: application/json
+- Body: 
+~~~
+{
+    "jwt": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2M2UyNTIyZWU5Y2ZhMTZhMjc2N2M4N2YiLCJpYXQiOjE2NzU3ODQ2NTcsImV4cCI6MTY3NTc5OTA1N30.xK0PzMuJFDUl1ndtOzksuIsUI1vYRAMSj_BMcumc7lA"
 }
 ~~~

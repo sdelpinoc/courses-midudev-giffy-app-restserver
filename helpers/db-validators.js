@@ -1,13 +1,5 @@
-import Role from '../models/role.js';
 import User from '../models/user.js';
 import mongoose from 'mongoose';
-
-const isValidRole = async (role = '') => {
-    const exitsRole = await Role.findOne({ role });
-    if (!exitsRole) {
-        throw new Error(`The role: ${role} is not registred in database`);
-    }
-};
 
 const emailExists = async (email = '') => {
     const emailExistsDB = await User.findOne({email: email});
@@ -34,7 +26,6 @@ const existsUserById = async (id = '') => {
 }
 
 export {
-    isValidRole,
     emailExists,
     existsUserById
 };

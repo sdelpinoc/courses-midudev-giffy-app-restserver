@@ -3,6 +3,7 @@ import cors from 'cors';
 
 import { routerUsers } from '../routes/users.js';
 import { routerAuth } from '../routes/auth.js';
+import { routerFavs } from '../routes/favs.js';
 
 import { dbConnection } from '../database/config.js';
 import { validateJSON } from '../middlewares/validate-fields.js';
@@ -14,6 +15,7 @@ export default class Server {
 
         this.userPath = '/api/users';
         this.authPath = '/api/auth';
+        this.favsPath = '/api/favs';
         // this.corsOptions = {
         //     origin: 'http://example.com',
         //     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
@@ -50,6 +52,7 @@ export default class Server {
     routes() {
         this.app.use(this.authPath, routerAuth);
         this.app.use(this.userPath, routerUsers);
+        this.app.use(this.favsPath, routerFavs);
     }
 
     listen() {
